@@ -33,7 +33,12 @@ plot_penduduk
 #menambahkan layer
 plot_penduduk+layer(geom = "point", stat = "identity", position = "identity")
 
-#Menambahkan Judul dan label
-plot_penduduk <- ggplot(data=penduduk,aes(x = LUAS.WILAYAH..KM2.,  y=KEPADATAN..JIWA.KM2.,color=NAMA.KABUPATEN.KOTA))
+
+#Menambahkan color otline berbeda pada tiap nilai X
+plot_penduduk <- ggplot(data=penduduk,aes(x = KEPADATAN..JIWA.KM2.,color = NAMA.KABUPATEN.KOTA))
+plot_penduduk+geom_histogram(binwidth = 10000)
+
+#Menambahkan color isi berbeda pada tiap nilai X
+plot_penduduk <- ggplot(data=penduduk,aes(x = KEPADATAN..JIWA.KM2.,fill = NAMA.KABUPATEN.KOTA))
 plot_penduduk+geom_histogram(binwidth = 10000)
 
